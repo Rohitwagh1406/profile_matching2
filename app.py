@@ -19,7 +19,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Constants
 S3_BUCKET = 'sandbox-file-upload'
-PDF_KEY = os.getenv("PDF_KEY")
+# PDF_KEY = os.getenv("PDF_KEY")
 # AWS credentials
 AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
 AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")
@@ -79,7 +79,7 @@ def evaluate_resume():
         else:
             return jsonify({"error": "No PDF file uploaded"}), 400
 
-
+        PDF_KEY = request.form.get("pdf_key")
         job_description = get_pdf_data_from_s3(S3_BUCKET, PDF_KEY)
 
         input_text = f"""
