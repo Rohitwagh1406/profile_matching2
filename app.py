@@ -188,10 +188,15 @@ def evaluate_resume():
         
         # print("evaluation result:")
         # print(evaluation_result)
+        # json_response = {
+        #     "evaluation_result": evaluation_result,
+        #     "Profile Summary": response
+        #     }
         json_response = {
-            "evaluation_result": evaluation_result,
+            "JD Match": evaluation_result["JD Match"],
+            "MissingKeywords": evaluation_result["MissingKeywords"],
             "Profile Summary": response
-            }
+        }
         return jsonify(json_response)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
