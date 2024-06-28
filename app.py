@@ -7,10 +7,10 @@ import boto3
 from urllib.parse import urlparse
 from botocore.exceptions import NoCredentialsError
 import re
-# from flask_cors import CORS
+from flask_cors import CORS
 # from utils import extract_name, extract_email, extract_mobile_number
 app = Flask(__name__)
-# CORS(app, resources={r"/*": {"origins": "https://app.rework.club"}})
+CORS(app, resources={r"/*": {"origins": "https://app.rework.club"}})
 load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 # Constants
